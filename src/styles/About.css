@@ -1,0 +1,690 @@
+/* ══════════════════════════════════════
+   Shared
+══════════════════════════════════════ */
+#about {
+  font-family: 'DM Sans', sans-serif;
+  background: #f4f8ff;
+}
+ 
+/* ══════════════════════════════════════
+   SECTION 1 — Who Are We
+══════════════════════════════════════ */
+.about {
+  padding: 80px 24px;
+  background: #f4f8ff;
+}
+ 
+.about-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 56px;
+  align-items: flex-start;
+}
+ 
+/* LEFT */
+.about-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+ 
+.about-tag {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #378ADD;
+  text-transform: uppercase;
+  margin: 0;
+}
+ 
+.about-heading {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  color: #042C53;
+  margin: 0;
+  line-height: 1.15;
+}
+ 
+.about-accent {
+  color: #378ADD;
+}
+ 
+.about-para {
+  font-size: 15px;
+  color: #4a6080;
+  line-height: 1.75;
+  margin: 0;
+}
+ 
+.btn-primary {
+  align-self: flex-start;
+  padding: 11px 28px;
+  border-radius: 8px;
+  background: #378ADD;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: 'DM Sans', sans-serif;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+ 
+.btn-primary:hover {
+  background: #185FA5;
+}
+ 
+/* WHY US */
+.why-us {
+  background: #ffffff;
+  border: 1px solid #B5D4F4;
+  border-radius: 14px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+ 
+.why-heading {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #042C53;
+  margin: 0;
+  line-height: 1.3;
+}
+ 
+.why-sub {
+  font-size: 13px;
+  color: #4a6080;
+  margin: 0;
+  line-height: 1.6;
+}
+ 
+.why-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+ 
+.why-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  color: #042C53;
+  font-weight: 500;
+}
+ 
+.why-check {
+  flex-shrink: 0;
+  font-size: 15px;
+}
+ 
+/* STATS */
+.about-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+ 
+.about-stat {
+  background: #ffffff;
+  border: 1px solid #B5D4F4;
+  border-radius: 10px;
+  padding: 14px 10px;
+  text-align: center;
+}
+ 
+.stat-num {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #378ADD;
+}
+ 
+.stat-label {
+  font-size: 11px;
+  color: #4a6080;
+  margin-top: 2px;
+}
+ 
+/* RIGHT */
+.about-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Founders */
+
+/* .founders-section {
+  background: #fff;
+  border-radius: 16px;
+  padding: 24px;
+  border: 0.5px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+} */
+ 
+.right-tag {
+  font-size: 11px;
+  font-weight: 700;
+  color: #2563eb;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin: 0 0 16px;
+  text-align: center;
+}
+ 
+.founders-img {
+  width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+  display: block;
+}
+
+/* .founders-names {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 12px;
+} */
+
+/* .founder-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+} */
+
+/* .founder-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: #2563eb;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+} */
+/* 
+.founder-role {
+  font-size: 12px;
+  color: #718096;
+}
+  */
+
+/* .founder-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: #1a2235;
+  letter-spacing: 0.5px;
+} */
+ 
+/* .founder-role {
+  font-size: 12px;
+  color: #718096;
+} */
+
+/* Vision / Mission blocks */
+.about-block {
+  display: flex;
+  gap: 14px;
+  background: #ffffff;
+  border: 1px solid #B5D4F4;
+  border-radius: 14px;
+  padding: 18px 20px;
+  align-items: flex-start;
+}
+ 
+.block-icon {
+  font-size: 24px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+ 
+.block-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: #042C53;
+  margin: 0 0 6px;
+}
+ 
+.block-text {
+  font-size: 13px;
+  color: #4a6080;
+  line-height: 1.65;
+  margin: 0;
+}
+ 
+/* Values row */
+.values-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+ 
+.value-card {
+  background: #ffffff;
+  border: 1px solid #B5D4F4;
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+ 
+.value-icon {
+  font-size: 22px;
+}
+ 
+.value-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #042C53;
+  margin: 0;
+}
+ 
+.value-text {
+  font-size: 12px;
+  color: #4a6080;
+  line-height: 1.55;
+  margin: 0;
+}
+ 
+/* ══════════════════════════════════════
+   Shared Section Styles (Sections 2–5)
+══════════════════════════════════════ */
+.au-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+ 
+.au-section {
+  padding: 70px 0;
+}
+ 
+.au-heading-wrap {
+  text-align: center;
+  margin-bottom: 48px;
+}
+ 
+.au-heading {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  color: #185FA5;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+ 
+.au-heading-line {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #378ADD, #85B7EB);
+  border-radius: 2px;
+  margin: 0 auto;
+}
+ 
+/* ══════════════════════════════════════
+   SECTION 2 — Area of Expertise
+══════════════════════════════════════ */
+.au-expertise {
+  background: #f4f8ff;
+}
+ 
+.au-exp-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+}
+ 
+.au-exp-card {
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #B5D4F4;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+ 
+.au-exp-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 36px rgba(55, 138, 221, 0.14);
+}
+ 
+.au-exp-img-wrap {
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+}
+ 
+.au-exp-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+ 
+.au-exp-card:hover .au-exp-img {
+  transform: scale(1.05);
+}
+ 
+.au-exp-body {
+  padding: 20px 18px 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+ 
+.au-exp-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: #185FA5;
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+ 
+.au-exp-desc {
+  font-size: 13px;
+  color: #4a6080;
+  line-height: 1.65;
+  margin: 0;
+}
+ 
+/* ══════════════════════════════════════
+   SECTION 3 — Track Records of Colleges
+══════════════════════════════════════ */
+.au-colleges {
+  background: #ffffff;
+  border-top: 1px solid #ddeeff;
+  border-bottom: 1px solid #ddeeff;
+  position: relative;
+  overflow: hidden;
+}
+ 
+.au-colleges::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 10% 50%, rgba(181, 212, 244, 0.18) 0%, transparent 60%),
+    radial-gradient(ellipse at 90% 50%, rgba(55, 138, 221, 0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+ 
+.au-logo-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 32px 24px;
+  align-items: center;
+  justify-items: center;
+}
+ 
+.au-logo-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+}
+ 
+.au-college-logo {
+  max-height: 90px;
+  max-width: 120px;
+  width: auto;
+  object-fit: contain;
+  filter: grayscale(20%);
+  transition: filter 0.2s ease, transform 0.2s ease;
+}
+ 
+.au-college-logo:hover {
+  filter: grayscale(0%);
+  transform: scale(1.08);
+}
+.au-college-banner {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.au-college-banner-img {
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 12px;
+}
+ 
+/* ══════════════════════════════════════
+   SECTION 4 — Values Delivered
+══════════════════════════════════════ */
+.au-values {
+  background: #f4f8ff;
+}
+ 
+.au-val-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 32px;
+  justify-items: center;
+}
+ 
+.au-val-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 14px;
+}
+ 
+.au-val-img-wrap {
+  width: 220px;
+  height: 160px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 3px solid #B5D4F4;
+  box-shadow: 0 6px 20px rgba(55, 138, 221, 0.12);
+}
+ 
+.au-val-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+ 
+.au-val-card:hover .au-val-img {
+  transform: scale(1.06);
+}
+ 
+.au-val-stat {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  color: #042C53;
+  line-height: 1;
+}
+ 
+.au-val-prefix {
+  font-size: 18px;
+  font-weight: 500;
+  color: #185FA5;
+}
+ 
+.au-val-num {
+  font-size: 32px;
+  color: #042C53;
+}
+ 
+.au-val-label {
+  font-size: 15px;
+  color: #185FA5;
+  font-weight: 500;
+  margin: 0;
+  line-height: 1.3;
+}
+ 
+/* ══════════════════════════════════════
+   SECTION 5 — Our Partners
+══════════════════════════════════════ */
+.au-partners {
+  background: #ffffff;
+  border-top: 1px solid #ddeeff;
+}
+ 
+.au-partner-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px 40px;
+  align-items: center;
+  justify-items: center;
+}
+ 
+.au-partner-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+}
+ 
+.au-partner-logo {
+  max-height: 60px;
+  max-width: 160px;
+  width: auto;
+  object-fit: contain;
+  filter: grayscale(30%);
+  opacity: 0.85;
+  transition: filter 0.2s ease, opacity 0.2s ease, transform 0.2s ease;
+}
+ 
+.au-partner-logo:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+  transform: scale(1.06);
+}
+ .au-partners-banner {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.au-partners-banner-img {
+  width: 100%;
+  max-width: 1000px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 12px;
+}
+/* ══════════════════════════════════════
+   Responsive
+══════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .about-inner {
+    flex-direction: column;
+    gap: 40px;
+  }
+  .about-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+ 
+@media (max-width: 900px) {
+  .au-logo-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .au-partner-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+ 
+@media (max-width: 600px) {
+  .about {
+    padding: 48px 16px;
+  }
+  .about-heading {
+    font-size: 30px;
+  }
+  .about-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .values-row {
+    grid-template-columns: 1fr;
+  }
+  .au-section {
+    padding: 48px 0;
+  }
+  .au-heading {
+    font-size: 20px;
+    letter-spacing: 2px;
+  }
+  .au-exp-grid,
+  .au-val-grid {
+    grid-template-columns: 1fr;
+  }
+  .au-logo-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .au-partner-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .au-val-img-wrap {
+    width: 100%;
+    height: 200px;
+  }
+}
+/* ── Video ── */
+.about-video-wrap {
+  position: relative;
+  margin-bottom: 28px;
+}
+
+.about-video {
+  width: 90%;
+  border-radius: 14px;
+  border: 1px solid #97b2e9;
+  display: block;
+  background: #829acd;
+}
+
+.about-video-badge {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #6a8dd9;
+  background: rgba(13, 17, 32, 0.85);
+  border: 1px solid #1e2d4a;
+  padding: 5px 12px;
+  border-radius: 20px;
+  backdrop-filter: blur(6px);
+}
+
+.badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #417bb3;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.3; }
+}

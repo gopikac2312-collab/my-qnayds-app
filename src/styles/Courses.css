@@ -1,0 +1,242 @@
+/* ══════════════════════════════════════
+   Courses Section
+══════════════════════════════════════ */
+.courses-section {
+  background: #7ca4cb;
+  padding: 70px 24px;
+  font-family: 'DM Sans', sans-serif;
+}
+ 
+.courses-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+ 
+/* ── Header ── */
+.courses-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+ 
+.courses-tag {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: #ffffff;
+  text-transform: uppercase;
+  margin: 0 0 10px;
+  opacity: 0.85;
+}
+ 
+.courses-heading {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 10px;
+}
+ 
+.courses-sub {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.75);
+  margin: 0;
+}
+ 
+/* ── Grid ── */
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+ 
+/* ── Card ── */
+.course-card {
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+ 
+.course-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
+}
+ 
+/* ── Thumbnail ── */
+.course-thumb {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  background: #0a1628;
+}
+ 
+.course-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+ 
+.course-card:hover .course-img {
+  transform: scale(1.05);
+}
+ 
+/* ── Body ── */
+.course-body {
+  padding: 18px 18px 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 10px;
+}
+ 
+.course-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #0d1b2a;
+  margin: 0;
+  line-height: 1.25;
+}
+ 
+.course-desc {
+  font-size: 13px;
+  color: #5a6a80;
+  line-height: 1.6;
+  margin: 0;
+  flex: 1;
+}
+ 
+/* ── Pricing ── */
+.course-pricing {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 4px;
+}
+ 
+.course-price-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+ 
+.course-price {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #2872bb;
+}
+ 
+.course-original {
+  font-size: 14px;
+  color: #9aa5b4;
+  text-decoration: line-through;
+}
+ 
+.course-badge {
+  background: #378ADD;
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 20px;
+  letter-spacing: 0.5px;
+}
+ 
+.course-discount {
+  background: #e8f5e9;
+  color: #2e7d32;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+ 
+/* ── Button ── */
+.course-btn {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 12px;
+  border-radius: 10px;
+  background: #407db9;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: 'DM Sans', sans-serif;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  margin-top: 4px;
+}
+ 
+.course-btn:hover {
+  background: #478dd2;
+}
+ 
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .courses-section {
+    padding: 48px 16px;
+  }
+ 
+  .courses-heading {
+    font-size: 24px;
+  }
+ 
+  .courses-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* Replace .courses-grid with: */
+.courses-scroll-wrapper {
+  position: relative;
+}
+
+.courses-track {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 20px;
+  padding-top: 8px;
+  cursor: grab;
+  scrollbar-width: thin;
+}
+
+.courses-track:active {
+  cursor: grabbing;
+}
+
+.course-card {
+  flex: 0 0 300px;   /* fixed width, no shrink */
+  scroll-snap-align: start;
+  /* keep your existing card styles */
+}
+
+.scroll-nav {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.scroll-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1.5px solid #ccc;
+  background: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.scroll-btn:hover {
+  border-color: var(--accent-color); /* your theme color */
+}

@@ -1,0 +1,182 @@
+.footer-root {
+  background: #0d1120;
+  border-top: 1px solid #1e2d4a;
+  padding: 56px 48px 0;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr 1.4fr;
+  gap: 40px;
+  padding-bottom: 48px;
+  align-items: start;
+}
+
+.footer-logo {
+  font-size: 28px;
+  font-weight: 800;
+  color: #3b9eff;
+  letter-spacing: 0.04em;
+  margin-bottom: 14px;
+}
+
+.footer-desc {
+  font-size: 14px;
+  color: #6a7b9a;
+  line-height: 1.75;
+  margin-bottom: 24px;
+  max-width: 240px;
+}
+
+.footer-socials { display: flex; gap: 10px; }
+
+.social-btn {
+  width: 36px; height: 36px;
+  border-radius: 8px;
+  border: 1px solid #1e2d4a;
+  background: #111827;
+  color: #7a8db3;
+  display: flex; align-items: center; justify-content: center;
+  text-decoration: none;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+.social-btn:hover { border-color: #3b9eff; color: #3b9eff; background: rgba(59,158,255,0.08); }
+
+.footer-col-title {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #3b9eff;
+  margin-bottom: 20px;
+}
+
+.footer-links { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; }
+.footer-links li a {
+  font-size: 14px; color: #7a8db3; text-decoration: none;
+  display: inline-flex; align-items: center; gap: 8px;
+  transition: color 0.2s;
+}
+.footer-links li a::before {
+  content: ''; width: 4px; height: 4px; border-radius: 50%;
+  background: #1e2d4a; flex-shrink: 0; transition: background 0.2s;
+}
+.footer-links li a:hover { color: #e8edf8; }
+.footer-links li a:hover::before { background: #3b9eff; }
+
+.contact-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 16px; }
+.contact-icon {
+  width: 32px; height: 32px;
+  background: rgba(59,158,255,0.1);
+  border-radius: 8px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px;
+}
+.contact-text { font-size: 13.5px; color: #7a8db3; line-height: 1.6; padding-top: 4px; }
+.contact-text a { color: #7a8db3; text-decoration: none; transition: color 0.2s; }
+.contact-text a:hover { color: #3b9eff; }
+
+.footer-divider { border: none; border-top: 1px solid #1e2d4a; margin: 0; }
+
+.footer-bottom {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 20px 0;
+}
+.footer-copy { font-size: 13px; color: #3e4f6b; }
+
+.footer-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 12px; color: #3e4f6b;
+  background: #111827;
+  border: 1px solid #1e2d4a;
+  padding: 4px 12px; border-radius: 20px;
+}
+.badge-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: #22c55e;
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .footer-root { padding: 40px 24px 0; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 480px) {
+  .footer-grid { grid-template-columns: 1fr; }
+
+  .footer-brand,
+  .footer-col { text-align: right; }
+
+  .footer-desc { max-width: 100%; }
+
+  .footer-socials { justify-content: flex-end; }
+
+  .footer-links li a {
+    justify-content: flex-end;
+    flex-direction: row-reverse;
+  }
+  .footer-links li a::before { display: none; }
+
+  .contact-item { flex-direction: row-reverse; text-align: right; }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+  }
+}
+/* Desktop — single row, 4 columns */
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr 1.4fr;
+  gap: 40px;
+  padding-bottom: 48px;
+  align-items: start;
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Mobile — single column, right-aligned */
+@media (max-width: 480px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-brand,
+  .footer-col {
+    text-align: right;
+  }
+
+  .footer-socials {
+    justify-content: flex-end;
+  }
+
+  .footer-links li a {
+    justify-content: flex-end;
+    flex-direction: row-reverse;
+  }
+
+  .footer-links li a::before {
+    display: none; /* hide bullet dot on mobile */
+  }
+
+  .contact-item {
+    flex-direction: row-reverse;
+    text-align: right;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+  }
+}
