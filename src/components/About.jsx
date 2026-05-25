@@ -311,7 +311,7 @@ function About() {
 
     <div className="au-partners-banner">
       <img
-        src="public\Partners-logo.png"
+        src="my-qnayds-app\Partners-logo.png"
         alt="Our Partners"
         className="au-partners-banner-img"
       />
