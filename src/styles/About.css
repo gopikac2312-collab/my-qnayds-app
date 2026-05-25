@@ -649,14 +649,17 @@
 .about-video-wrap {
   position: relative;
   margin-bottom: 16px;
+  width: 100%;
 }
 
 .about-video {
-  width: 70%;
+  width: 100%;           /* ← was 70%, breaks on mobile */
+  height: auto;
   border-radius: 14px;
   border: 1px solid #97b2e9;
   display: block;
   background: #829acd;
+  object-fit: cover;
 }
 
 .about-video-badge {
@@ -674,13 +677,14 @@
   padding: 5px 12px;
   border-radius: 20px;
   backdrop-filter: blur(6px);
+  z-index: 2;
 }
 
-.badge-dot {
+.about-video-badge .badge-dot {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #417bb3;
+  background: #4ade80;        /* ← green so it looks "live" */
   animation: pulse 2s ease-in-out infinite;
 }
 
@@ -688,11 +692,17 @@
   0%, 100% { opacity: 1; }
   50%       { opacity: 0.3; }
 }
+
 @media (max-width: 900px) {
-  video {
+  .about-video {
     width: 100%;
     height: auto;
-    max-height: 300px;
+    max-height: 280px;
     object-fit: cover;
+    border-radius: 10px;
+  }
+
+  .about-video-wrap {
+    margin-bottom: 12px;
   }
 }

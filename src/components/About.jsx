@@ -130,15 +130,24 @@ function About() {
             <p className="about-tag">ABOUT US</p>
             <h2 className="about-heading">
             Who are <span className="about-accent">We?</span>
-            </h2><div className="about-video-wrap">
-    <video
-      src="/my-qnayds-app/about-video.mp4"
-    />
-    <div className="about-video-badge">
-      <span className="badge-dot"></span>
-      QNAYDS Introduction
-    </div>
+            </h2>
+            
+   <div className="about-video-wrap">
+  <video
+    src="/my-qnayds-app/about-video.mp4"
+    autoPlay
+    muted
+    loop
+    playsInline
+    controls
+    preload="auto"
+    className="about-video"
+  />
+  <div className="about-video-badge">
+    <span className="badge-dot"></span>
+    QNAYDS Introduction
   </div>
+</div>
 
             <p className="about-para">
               The need for cyber security has never been greater than it is now, given our
