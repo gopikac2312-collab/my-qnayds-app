@@ -46,11 +46,11 @@ const tickerItems = [
   'Web App Security', 'Cloud Security', 'Incident Response', 'Threat Hunting'
 ];
 const logos = [
-  { src: '/logos/msme.webp', alt: 'MSME' },
-  { src: '/logos/Startup-India_Preview.png', alt: 'Startup India' },
-  { src: '/logos/All-India-Council-for-Technical-Education.jpg', alt: 'AICTE' },
-  { src: '/logos/download.jpg', alt: 'Kerala' },
-  { src: '/logos/fb_image.jpg', alt: 'Kerala Startup Mission' },
+  { src: 'public/logos/msme.webp', alt: 'MSME' },
+  { src: 'public/logos/Startup-India_Preview.png', alt: 'Startup India' },
+  { src: 'public/logos/All-India-Council-for-Technical-Education.jpg', alt: 'AICTE' },
+  { src: 'public/logos/download.jpg', alt: 'Kerala' },
+  { src: 'public/logos/msme.webp', alt: 'Kerala Startup Mission' },
 ];
 const stripItems = [
   'Expert Trainers',

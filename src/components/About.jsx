@@ -132,10 +132,7 @@ function About() {
             Who are <span className="about-accent">We?</span>
             </h2><div className="about-video-wrap">
     <video
-      src="/about-video.mp4"
-      controls
-      playsInline
-      className="about-video"
+      src="public\about-video.mp4"
     />
     <div className="about-video-badge">
       <span className="badge-dot"></span>

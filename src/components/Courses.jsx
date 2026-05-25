@@ -3,19 +3,19 @@ import '../styles/Courses.css'
 
 const coursesData = [
   {
-    img: "/public/hacking.png",
+    img: "public/hacking.png",
     title: "30 Days Hacking Course",
     desc: "Build a strong foundation in cybersecurity with our 30-Day Intensive Program...",
     link: "#",
   },
   {
-    img: "/public/Using Ai.png",
+    img: "public/Using Ai.png",
     title: "Advanced Excel Using AI",
     desc: "Master Excel like a professional using the power of AI. This 30-day intensive program...",
     link: "#",
   },
   {
-    img: "/public/cybersecurity.png",
+    img: "public/cybersecurity.png",
     title: "Advanced Cybersecurity Course",
     desc: "The Advanced Certified Cybersecurity Program is a job-oriented professional...",
     link: "#",

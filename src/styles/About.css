@@ -648,11 +648,11 @@
 /* ── Video ── */
 .about-video-wrap {
   position: relative;
-  margin-bottom: 28px;
+  margin-bottom: 16px;
 }
 
 .about-video {
-  width: 90%;
+  width: 70%;
   border-radius: 14px;
   border: 1px solid #97b2e9;
   display: block;

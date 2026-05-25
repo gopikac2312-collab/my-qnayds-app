@@ -66,13 +66,13 @@ import { useRef, useEffect } from 'react'
 import '../styles/Trainers.css'
 
 const trainersData = [
-  { name: "Rishan N K", role: "Iot and Robotics Trainer Toastmaster International  6+ year experenice", src: "/rishan nk.png", linkedin: "#" },
-  { name: "Sawad K T", role: " CyberSecurity Trainer 6+ year experenice", src: "/sawad.png", linkedin: "#" },
-  { name: "Abhilash O S", role: "Microelectronics & VLSI Trainer    10+ year experenice", src: "/trainer1.png", linkedin: "#" },
-  { name: "Kavitha Sivdas Nair", role: "BIM Trainer 10+ year expereince", src: "/trainer2.png", linkedin: "#" },
-  { name: "Sayanth K S", role: "Robotics Trainer ", src: "/trainer3.png", linkedin: "#" },
-  { name: "Mohammed Rishal", role: "Data Science & AI Trainer", src: "/trainer4.png", linkedin: "#" },
-  { name: "Aswinraj K", role: "Full Stack Trainer", src: "/trainer5.png", linkedin: "#" },
+  { name: "Rishan N K", role: "Iot and Robotics Trainer Toastmaster International  6+ year experenice", src: "public/rishan nk.png", linkedin: "#" },
+  { name: "Sawad K T", role: " CyberSecurity Trainer 6+ year experenice", src: "public/sawad.png", linkedin: "#" },
+  { name: "Abhilash O S", role: "Microelectronics & VLSI Trainer    10+ year experenice", src: "public/trainer1.png", linkedin: "#" },
+  { name: "Kavitha Sivdas Nair", role: "BIM Trainer 10+ year expereince", src: "public/trainer2.png", linkedin: "#" },
+  { name: "Sayanth K S", role: "Robotics Trainer ", src: "public/trainer3.png", linkedin: "#" },
+  { name: "Mohammed Rishal", role: "Data Science & AI Trainer", src: "public/trainer4.png", linkedin: "#" },
+  { name: "Aswinraj K", role: "Full Stack Trainer", src: "public/trainer5.png", linkedin: "#" },
  
 ]
 
