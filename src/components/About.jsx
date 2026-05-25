@@ -132,7 +132,7 @@ function About() {
             Who are <span className="about-accent">We?</span>
             </h2><div className="about-video-wrap">
     <video
-      src="/my-qnayds-app/\about-video.mp4"
+      src="/my-qnayds-app/about-video.mp4"
     />
     <div className="about-video-badge">
       <span className="badge-dot"></span>
