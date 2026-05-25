@@ -1036,3 +1036,15 @@
     padding: 0 16px;
   }
 }
+/* ── MOBILE ANIMATION FIX ──────── */
+@media (max-width: 900px) {
+  .hero-headline,
+  .hero-sub,
+  .hero-badge,
+  .hero-actions,
+  .hero-recognitions {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

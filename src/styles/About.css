@@ -688,3 +688,11 @@
   0%, 100% { opacity: 1; }
   50%       { opacity: 0.3; }
 }
+@media (max-width: 900px) {
+  video {
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+    object-fit: cover;
+  }
+}
