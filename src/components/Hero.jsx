@@ -46,11 +46,11 @@ const tickerItems = [
   'Web App Security', 'Cloud Security', 'Incident Response', 'Threat Hunting'
 ];
 const logos = [
-  { src: 'public/logos/msme.webp', alt: 'MSME' },
-  { src: 'public/logos/Startup-India_Preview.png', alt: 'Startup India' },
-  { src: 'public/logos/All-India-Council-for-Technical-Education.jpg', alt: 'AICTE' },
-  { src: 'public/logos/download.jpg', alt: 'Kerala' },
-  { src: 'public/logos/msme.webp', alt: 'Kerala Startup Mission' },
+  { src: '/my-qnayds-app//logos/msme.webp', alt: 'MSME' },
+  { src: '/my-qnayds-app//logos/Startup-India_Preview.png', alt: 'Startup India' },
+  { src: '/my-qnayds-app//logos/All-India-Council-for-Technical-Education.jpg', alt: 'AICTE' },
+  { src: '/my-qnayds-app//logos/download.jpg', alt: 'Kerala' },
+  { src: '/my-qnayds-app//logos/msme.webp', alt: 'Kerala Startup Mission' },
 ];
 const stripItems = [
   'Expert Trainers',

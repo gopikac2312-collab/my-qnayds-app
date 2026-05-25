@@ -7,22 +7,22 @@ import '../styles/About.css'
 
 const expertiseData = [
   {
-    img: "public/industry relevent.webp",
+    img: "/my-qnayds-app//industry relevent.webp",
     title: "Industry-Relevant Master Courses",
     desc: "Comprehensive programs in Prompt Engineering, Ethical Hacking, Python with AI, Stock Trading, and Digital Marketing — designed to meet current industry demands.",
   },
   {
-    img: "public/hands on inrernship.jpg",
+    img: "/my-qnayds-app//hands on inrernship.jpg",
     title: "Hands-On Internships & Career Training",
     desc: "Certified internships with real-world projects in Web Development, AI Tools, and Data Science — focused on employability and skill application.",
   },
   {
-    img: "public/academic.webp",
+    img: "/my-qnayds-app//academic.webp",
     title: "Academic & Institutional Programs",
     desc: "Customized add-on and certification courses for Engineering, Polytechnic, and School students, developed in collaboration with institutions.",
   },
   {
-    img: "public/learner.png",
+    img: "/my-qnayds-app//learner.png",
     title: "Learner Engagement & EdTech Innovation",
     desc: "AI-powered learning, WhatsApp academic updates, placement support, and interactive tools to make education more effective and accessible.",
   },
@@ -42,9 +42,9 @@ const collegeLogos = [
 ]
 
 const valuesData = [
-  { img: "public/enginerer.png", stat: "100+",   label: "Engineering colleges", prefix: "Trained" },
-  { img: "public/expert traines.png", stat: "200+",   label: "Expert Trainers",       prefix: "" },
-  { img: "public/students.png", stat: "10000+", label: "Students Trained",      prefix: "" },
+  { img: "/my-qnayds-app//enginerer.png", stat: "100+",   label: "Engineering colleges", prefix: "Trained" },
+  { img: "/my-qnayds-app//expert traines.png", stat: "200+",   label: "Expert Trainers",       prefix: "" },
+  { img: "/my-qnayds-app//students.png", stat: "10000+", label: "Students Trained",      prefix: "" },
 ]
 
 const partnersData = [
@@ -132,7 +132,7 @@ function About() {
             Who are <span className="about-accent">We?</span>
             </h2><div className="about-video-wrap">
     <video
-      src="public\about-video.mp4"
+      src="/my-qnayds-app/\about-video.mp4"
     />
     <div className="about-video-badge">
       <span className="badge-dot"></span>
@@ -216,7 +216,7 @@ function About() {
               <br />
               <br />
               <img
-                src="public/founders.png"
+                src="/my-qnayds-app//founders.png"
                 alt="Rishan NK and Sawad KT - Founders"
                 className="founders-img"
               />
@@ -283,7 +283,7 @@ function About() {
     
     <div className="au-college-banner">
       <img
-        src="public\college-logo.png"
+        src="/my-qnayds-app/\college-logo.png"
         alt="Colleges we have trained"
         className="au-college-banner-img"
       />
@@ -311,7 +311,7 @@ function About() {
 
     <div className="au-partners-banner">
       <img
-        src="my-qnayds-app\Partners-logo.png"
+        src="/my-qnayds-app/Partners-logo.png"
         alt="Our Partners"
         className="au-partners-banner-img"
       />

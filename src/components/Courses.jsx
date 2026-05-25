@@ -3,31 +3,31 @@ import '../styles/Courses.css'
 
 const coursesData = [
   {
-    img: "public/hacking.png",
+    img: "/my-qnayds-app//hacking.png",
     title: "30 Days Hacking Course",
     desc: "Build a strong foundation in cybersecurity with our 30-Day Intensive Program...",
     link: "#",
   },
   {
-    img: "public/Using Ai.png",
+    img: "/my-qnayds-app//Using Ai.png",
     title: "Advanced Excel Using AI",
     desc: "Master Excel like a professional using the power of AI. This 30-day intensive program...",
     link: "#",
   },
   {
-    img: "public/cybersecurity.png",
+    img: "/my-qnayds-app//cybersecurity.png",
     title: "Advanced Cybersecurity Course",
     desc: "The Advanced Certified Cybersecurity Program is a job-oriented professional...",
     link: "#",
   },
   {
-    img: "public/ai poster.png",
+    img: "/my-qnayds-app//ai poster.png",
     title: "Advanced AI Poster Designing",
     desc: "Master the art of professional poster creation using cutting-edge AI tools. Learn to craft stunning visuals, brand materials, and marketing creatives with AI-powered design platforms...",
     link: "#",
   },
   {
-    img: "public/ai for teachers.png",
+    img: "/my-qnayds-app//ai for teachers.png",
     title: "AI for Teachers",
     desc: "Empower your classroom with artificial intelligence. This course helps educators leverage AI tools for lesson planning, assessments, personalized learning, and smart content creation...",
     link: "#",
