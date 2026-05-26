@@ -113,10 +113,10 @@
 
   .footer-desc { max-width: 100%; }
 
-  .footer-socials { justify-content: flex-end; }
+  .footer-socials { justify-content: left; }
 
   .footer-links li a {
-    justify-content: flex-end;
+    justify-content: left;
     flex-direction: row-reverse;
   }
   .footer-links li a::before { display: none; }

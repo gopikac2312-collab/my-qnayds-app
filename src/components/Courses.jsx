@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useRef, useCallback } from 'react'
 import '../styles/Courses.css'
 
 const coursesData = [
@@ -6,31 +6,26 @@ const coursesData = [
     img: "/my-qnayds-app//hacking.png",
     title: "30 Days Hacking Course",
     desc: "Build a strong foundation in cybersecurity with our 30-Day Intensive Program...",
-    link: "#",
   },
   {
     img: "/my-qnayds-app//Using Ai.png",
     title: "Advanced Excel Using AI",
     desc: "Master Excel like a professional using the power of AI. This 30-day intensive program...",
-    link: "#",
   },
   {
     img: "/my-qnayds-app//cybersecurity.png",
     title: "Advanced Cybersecurity Course",
     desc: "The Advanced Certified Cybersecurity Program is a job-oriented professional...",
-    link: "#",
   },
   {
     img: "/my-qnayds-app//ai poster.png",
     title: "Advanced AI Poster Designing",
-    desc: "Master the art of professional poster creation using cutting-edge AI tools. Learn to craft stunning visuals, brand materials, and marketing creatives with AI-powered design platforms...",
-    link: "#",
+    desc: "Master the art of professional poster creation using cutting-edge AI tools...",
   },
   {
     img: "/my-qnayds-app//ai for teachers.png",
     title: "AI for Teachers",
-    desc: "Empower your classroom with artificial intelligence. This course helps educators leverage AI tools for lesson planning, assessments, personalized learning, and smart content creation...",
-    link: "#",
+    desc: "Empower your classroom with artificial intelligence...",
   },
 ]
 
@@ -50,23 +45,59 @@ function CourseCard({ course }) {
 }
 
 function Courses() {
-  const trackRef = useRef(null)
-  const SCROLL_AMOUNT = 324 // card width (300) + gap (24)
+  const trackRef   = useRef(null)
+  const rafRef     = useRef(null)   // requestAnimationFrame id
+  const scrolling  = useRef(false)  // is auto-scroll running?
+  const SCROLL_AMOUNT = 324
 
-  const scrollLeft = () => trackRef.current?.scrollBy({ left: -SCROLL_AMOUNT, behavior: 'smooth' })
-  const scrollRight = () => trackRef.current?.scrollBy({ left: SCROLL_AMOUNT, behavior: 'smooth' })
+  // ── rAF loop — runs while cursor is over track ──
+  const tick = useCallback(() => {
+    const el = trackRef.current
+    if (!el || !scrolling.current) return
+    // loop back when reaching end
+    if (el.scrollLeft + el.clientWidth >= el.scrollWidth - 1) {
+      el.scrollLeft = 0
+    } else {
+      el.scrollLeft += 1.2   // speed: px per frame
+    }
+    rafRef.current = requestAnimationFrame(tick)
+  }, [])
 
-  // Drag-to-scroll
-  const drag = useRef({ active: false, startX: 0, scrollLeft: 0 })
-  const onMouseDown = (e) => {
-    drag.current = { active: true, startX: e.pageX - trackRef.current.offsetLeft, scrollLeft: trackRef.current.scrollLeft }
+  const startScroll = () => {
+    if (scrolling.current) return   // already running
+    scrolling.current = true
+    rafRef.current = requestAnimationFrame(tick)
   }
-  const onMouseLeave = () => { drag.current.active = false }
-  const onMouseUp = () => { drag.current.active = false }
+
+  const stopScroll = () => {
+    scrolling.current = false
+    cancelAnimationFrame(rafRef.current)
+  }
+
+  // ── Arrow buttons ──
+  const scrollLeft  = () => trackRef.current?.scrollBy({ left: -SCROLL_AMOUNT, behavior: 'smooth' })
+  const scrollRight = () => trackRef.current?.scrollBy({ left:  SCROLL_AMOUNT, behavior: 'smooth' })
+
+  // ── Drag-to-scroll ──
+  const drag = useRef({ active: false, startX: 0, scrollLeft: 0 })
+
+  const onMouseDown = (e) => {
+    stopScroll()
+    drag.current = {
+      active: true,
+      startX: e.pageX - trackRef.current.offsetLeft,
+      scrollLeft: trackRef.current.scrollLeft,
+    }
+  }
+  const onMouseUp = () => {
+    drag.current.active = false
+    startScroll()
+  }
   const onMouseMove = (e) => {
     if (!drag.current.active) return
     e.preventDefault()
-    trackRef.current.scrollLeft = drag.current.scrollLeft - (e.pageX - trackRef.current.offsetLeft - drag.current.startX)
+    trackRef.current.scrollLeft =
+      drag.current.scrollLeft - (e.pageX - trackRef.current.offsetLeft - drag.current.startX)
   }
 
   return (
@@ -82,8 +113,9 @@ function Courses() {
           <div
             className="courses-track"
             ref={trackRef}
+            onMouseEnter={startScroll}
+            onMouseLeave={stopScroll}
             onMouseDown={onMouseDown}
-            onMouseLeave={onMouseLeave}
             onMouseUp={onMouseUp}
             onMouseMove={onMouseMove}
           >
@@ -99,7 +131,6 @@ function Courses() {
         </div>
       </div>
     </section>
-    
   )
 }
 

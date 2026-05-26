@@ -50,7 +50,7 @@ const logos = [
   { src: '/my-qnayds-app//logos/Startup-India_Preview.png', alt: 'Startup India' },
   { src: '/my-qnayds-app//logos/All-India-Council-for-Technical-Education.jpg', alt: 'AICTE' },
   { src: '/my-qnayds-app//logos/download.jpg', alt: 'Kerala' },
-  { src: '/my-qnayds-app//logos/msme.webp', alt: 'Kerala Startup Mission' },
+  { src: '/my-qnayds-app//logos/fb_image.jpg', alt: 'Kerala Startup Mission' },
 ];
 
 const stripItems = [
@@ -103,6 +103,7 @@ function Hero() {
 
         <div className="hero-recognitions">
           <p className="rec-label">Recognised and Featured by</p>
+          <br />
           <div className="rec-logos-wrap">
             <div className="rec-logos-track">
               {[...logos, ...logos].map((logo, i) => (
