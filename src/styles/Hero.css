@@ -165,7 +165,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: top center;
+  object-position: center 20%;
   display: block;
 }
 
@@ -445,8 +445,7 @@
   /* ── RIGHT: full-width image with overlaid stat cards ── */
   .hero-right {
     width: 100%;
-    /* tall enough to show image + cards */
-    height: 420px;
+    height: 480px;
     min-height: unset;
     position: relative;
     overflow: hidden;
@@ -455,14 +454,14 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: top center;
+    object-position: center 15%;
     display: block;
   }
 
   /* stat cards pinned to bottom of image — like Offenso */
   .hero-img-stats {
     position: absolute;
-    bottom: 16px;
+    bottom: 0px;
     left: 12px; right: 12px;
     display: flex;
     gap: 10px;
@@ -471,11 +470,11 @@
   .img-stat-card {
     flex: 1;
     /* dark card like Offenso left card */
-    background: rgba(10, 20, 40, 0.75);
+    background: rgba(34, 97, 223, 0.75);
     backdrop-filter: blur(12px);
-    border: 1px solid rgba(255,255,255,0.15);
+    border: 1px solid rgba(52, 50, 50, 0.15);
     border-radius: 14px;
-    padding: 14px 16px;
+    padding: 1px 14px;
     box-shadow: 0 8px 24px rgba(0,0,0,0.3);
   }
   /* right google card stays white */
@@ -484,23 +483,23 @@
   }
 
   .img-stat-num {
-    font-size: 28px;
-    color: #39ff14;   /* green like Offenso left stat */
+    font-size: 25px;
+    color: #091f3f;   /* green like Offenso left stat */
   }
   /* google card num stays blue */
   .img-stat-card:last-child .img-stat-rating { color: var(--blue); font-size: 26px; }
 
-  .img-stat-label  { font-size: 11px; color: rgba(255,255,255,0.8); }
+  .img-stat-label  { font-size: 11px; color: rgba(239, 236, 236, 0.8); }
   /* google card label stays dark */
   .img-stat-card:last-child .img-stat-google { color: var(--text-soft); }
   .img-stat-card:last-child .img-stat-stars  { font-size: 14px; }
 
   .img-stat-avatars { margin-top: 6px; }
   .img-stat-avatar  {
-    background: rgba(57,255,20,0.25);
-    color: #39ff14;
-    border-color: rgba(10,20,40,0.5);
-    font-size: 9px;
+    background: rgba(126, 140, 154, 0.512);
+    color: #25344a;
+    border-color: rgba(67, 104, 178, 0.5);
+    font-size: 7px;
   }
 
   /* ── RECOGNITIONS ── */
@@ -539,8 +538,8 @@
   .hero-left      { padding: 28px 16px 20px; }
   .hero-headline  { font-size: clamp(26px, 9vw, 38px); }
 
-  .hero-right     { height: 360px; }
-  .hero-right-img { height: 360px; }
+  .hero-right     { height: 420px; }
+  .hero-right-img { height: 420px; }
 
   .hero-img-stats { bottom: 12px; left: 10px; right: 10px; gap: 8px; }
   .img-stat-card  { padding: 10px 12px; border-radius: 10px; }
