@@ -1,202 +1,310 @@
-/* ── TRAINERS SECTION ─────────────────────────────── */
+/* ══════════════════════════════════
+   Trainers.css — slide-one-card carousel
+   ══════════════════════════════════ */
+
 .trainers {
-  padding: 80px 0;
+  padding: 80px 0 60px;
   text-align: center;
-  background: #aeceef;
+  background: linear-gradient(160deg, #b0c9eb 0%, #abc5e7 50%, #a5b5e0 100%);
   font-family: 'Exo 2', 'Segoe UI', sans-serif;
+  overflow: hidden;
 }
 
-/* ── HEADER ──────────────────────────────────────── */
+/* ── HEADER ──────────────────────── */
 .trainers-header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
   padding: 0 80px;
   margin-bottom: 48px;
-  gap: 10px;
+  gap: 12px;
 }
-
 .section-badge {
   display: inline-block;
-  background: rgba(37, 99, 235, 0.15);
-  color: #2563eb;
-  border: 1.5px solid rgba(37, 99, 235, 0.3);
+  background: rgba(37,99,235,0.1);
+  color: #7f9dde;
+  border: 1.5px solid rgba(37,99,235,0.25);
   border-radius: 100px;
-  padding: 5px 16px;
+  padding: 5px 18px;
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  width: fit-content;
 }
-
 .trainers-header h2 {
   font-family: 'Rajdhani', 'Exo 2', sans-serif;
-  font-size: clamp(24px, 3vw, 38px);
+  font-size: clamp(26px, 3vw, 42px);
   font-weight: 700;
-  color: #ffffff;
+  color: #0f172a;
   margin: 0;
-  line-height: 1.2;
 }
-
-.highlight {
-  color: #2563eb;
-}
-
+.highlight { color: #2563eb; }
 .trainers-header p {
-  font-size: 15px;
-  color: #4f7dbf;
-  max-width: 320px;
+  font-size: 14px;
+  color: #487fcd;
+  max-width: 380px;
   line-height: 1.7;
   margin: 0;
-  text-align: center;
 }
 
-/* ── CAROUSEL WRAPPER ────────────────────────────── */
+/* ── CAROUSEL WRAPPER ────────────── */
 .trainers-carousel {
   position: relative;
   display: flex;
   align-items: center;
-  padding: 0 56px;
+  justify-content: center;
+  gap: 12px;
+  padding: 0 20px;
   max-width: 1100px;
   margin: 0 auto;
 }
 
-/* ── SCROLL ROW ───────────────────────────────────── */
-.trainers-row {
+/* ── WINDOW — clips overflow ─────── */
+.trainers-window {
+  /* show 3 cards (276px each + 20px gap) */
+  width: calc(276px * 3 + 20px * 2);
+  overflow: hidden;
+  /* fade left & right edges */
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+}
+
+/* ── TRACK — slides smoothly ─────── */
+.trainers-track {
   display: flex;
   gap: 20px;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  scrollbar-width: none;
-  padding: 8px 4px 16px;
-  flex: 1;
+  transition: transform 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
+  will-change: transform;
+  padding: 16px 0 24px;
 }
 
-.trainers-row::-webkit-scrollbar {
-  display: none;
-}
-
-/* ── CARD ─────────────────────────────────────────── */
+/* ══════════════════════════════════
+   CARD
+   ══════════════════════════════════ */
 .trainer-card {
-  min-width: 280px;
-  max-width: 280px;
+  width: 276px;
   flex-shrink: 0;
-  border-radius: 26px;
+  border-radius: 20px;
   overflow: hidden;
   background: #ffffff;
-  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(37,99,235,0.08);
+  transition: transform 0.4s ease, box-shadow 0.4s ease, opacity 0.4s ease;
+  opacity: 0.65;
+  transform: scale(0.94);
 }
 
-/* ── PHOTO ────────────────────────────────────────── */
+/* active (centre) card pops */
+.trainer-card.active {
+  opacity: 1;
+  transform: scale(1);
+  box-shadow: 0 12px 40px rgba(37,99,235,0.18);
+}
+
+/* colour bar top */
+.card-color-bar {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  z-index: 2;
+}
+
+/* ── PHOTO ───────────────────────── */
 .trainer-photo {
   width: 100%;
-  height: 300px;
-  background: #a3c1ee;
+  height: 270px;
+  position: relative;
   overflow: hidden;
+  background: #bfdbfe;
 }
-
 .trainer-photo img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: top center;
   display: block;
+  transition: transform 0.4s ease;
 }
-
+.trainer-card.active .trainer-photo img {
+  transform: scale(1.03);
+}
 .trainer-photo-placeholder {
   width: 100%;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 48px;
+  font-size: 52px;
   font-weight: 900;
-  color: #9eb9df;
-  background: #95afd9;
+  color: #1d4ed8;
+  background: linear-gradient(135deg, #bfdbfe, #dbeafe);
 }
 
-/* ── INFO ─────────────────────────────────────────── */
+/* exp badge */
+/* .exp-badge {
+  position: absolute;
+  top: 12px; right: 12px;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 100px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+} */
+
+/* ── INFO ────────────────────────── */
 .trainer-info {
-  padding: 16px 20px 18px;
-  background: #ffffff;
+  padding: 14px 16px 16px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
-
-.trainer-info h3 {
+.trainer-name {
   font-family: 'Rajdhani', 'Exo 2', sans-serif;
-  font-size: 18px;
-  font-weight: 700;
-  color: #405fa8;
-  margin: 0 0 2px;
+  font-size: 17px;
+  font-weight: 800;
+  color: #0e2355;
+  margin: 0;
+  line-height: 1.2;
 }
-
 .trainer-role {
-  font-size: 13px;
-  color: #4374b8;
+  font-size: 12px;
+  font-weight: 600;
   margin: 0;
   line-height: 1.4;
 }
+.trainer-extra {
+  font-size: 11px;
+  color: #435b7d;
+  margin: 0;
+  line-height: 1.4;
+}
+.trainer-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 8px;
+  border-top: 1px solid #f1f5f9;
+  margin-top: 4px;
+}
+.trainer-exp {
+  font-size: 11px;
+  font-weight: 700;
+  color: #2563eb;
+}
+.trainer-tag {
+  font-size: 9px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 100px;
+  border: 1px solid;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  max-width: 110px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 
-/* ── LINKEDIN ─────────────────────────────────────── */
+/* linkedin */
 .linkedin-btn {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
+  gap: 6px;
   background: #e8f0fe;
-  border-radius: 6px;
-  margin-top: 10px;
-  transition: background 0.2s ease;
+  border-radius: 8px;
+  padding: 6px 12px;
+  margin-top: 6px;
+  width: fit-content;
+  font-size: 12px;
+  font-weight: 600;
+  color: #0077b5;
   text-decoration: none;
+  transition: background 0.2s;
 }
+.linkedin-btn:hover { background: #bfdbfe; }
 
-.linkedin-btn:hover {
-  background: #bfdbfe;
-}
-
-/* ── ARROWS ───────────────────────────────────────── */
+/* ── ARROWS ──────────────────────── */
 .carousel-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   background: #ffffff;
-  border: none;
-  font-size: 26px;
-  line-height: 1;
+  border: 1px solid #e2e8f0;
+  font-size: 30px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #0f172a;
-  z-index: 10;
-  transition: background 0.2s ease, transform 0.2s ease;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+  color: #1d4ed8;
+  flex-shrink: 0;
+  box-shadow: 0 4px 14px rgba(37,99,235,0.15);
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  line-height: 1;
 }
-
 .carousel-arrow:hover {
-  background: #f1f5f9;
-  transform: translateY(-50%) scale(1.08);
+  background: #a4c4ee;
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(37,99,235,0.25);
 }
 
-.carousel-arrow.left  { left: 16px; }
-.carousel-arrow.right { right: 16px; }
-
-/* ── RESPONSIVE ───────────────────────────────────── */
-@media (max-width: 900px) {
-  .trainers-header { padding: 0 24px; }
-  .trainers-carousel { padding: 0 40px; }
-  .trainer-card { min-width: 240px; max-width: 240px; }
-  .carousel-arrow.left  { left: 4px; }
-  .carousel-arrow.right { right: 4px; }
+/* ── DOTS ────────────────────────── */
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 28px;
+}
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #bfdbfe;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s, width 0.3s;
+  padding: 0;
+}
+.dot.active {
+  background: #2563eb;
+  width: 24px;
+  border-radius: 100px;
+  transform: scale(1);
 }
 
-@media (max-width: 480px) {
-  .trainers { padding: 48px 0; }
-  .trainer-card { min-width: 200px; max-width: 200px; }
-  .trainer-photo { height: 240px; }
+/* ── RESPONSIVE ──────────────────── */
+@media (max-width: 1000px) {
+  /* show 2 cards */
+  .trainers-window {
+    width: calc(276px * 2 + 20px);
+  }
+}
+
+@media (max-width: 700px) {
+  /* show 1 card */
+  .trainers-window {
+    width: 276px;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+  .trainers-header { padding: 0 24px; margin-bottom: 32px; }
+  .carousel-arrow  { width: 38px; height: 38px; font-size: 24px; }
+}
+
+@media (max-width: 400px) {
+  .trainers-window { width: 240px; }
+  .trainer-card    { width: 240px; }
+  .trainer-photo   { height: 240px; }
 }

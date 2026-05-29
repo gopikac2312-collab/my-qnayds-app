@@ -61,35 +61,51 @@
 // }
 
 // export default Trainers
-import { useRef, useEffect, useCallback } from 'react'
+import { useRef, useState, useEffect, useCallback } from 'react'
 import '../styles/Trainers.css'
 
 const trainersData = [
-  { name: "Rishan N K",          role: "IoT and Robotics Trainer  Toastmaster International  6+ yrs experience", src: "/my-qnayds-app//rishan nk.png",  linkedin: "#" },
-  { name: "Sawad K T",           role: "Digital marketing and ai trainer 6+ yrs experience",        src: "/my-qnayds-app//sawad.png",       linkedin: "#" },
-  { name: "Abhilash O S",        role: "Microelectronics & VLSI Trainer  10+ yrs experience",                      src: "/my-qnayds-app//trainer1.png",    linkedin: "#" },
-  { name: "Kavitha Sivdas Nair", role: "BIM Trainer  10+ yrs experience",                                          src: "/my-qnayds-app//trainer2.png",    linkedin: "#" },
-  { name: "Sayanth K S",         role: "Robotics Trainer",                                                src: "/my-qnayds-app//trainer3.png",    linkedin: "#" },
-  { name: "Mohammed Rishal",     role: "Data Science & AI Trainer",                                       src: "/my-qnayds-app//trainer4.png",    linkedin: "#" },
-  { name: "Aswinraj K",          role: "Full Stack Trainer",                                              src: "/my-qnayds-app//trainer5.png",    linkedin: "#" },
+  { name: "Rishan N K",          role: "IoT & Robotics Trainer",          extra: "Toastmaster International",       experience: "6+ yrs",  tag: "CEO / FOUNDER",      src: "/my-qnayds-app//rishan nk.png", linkedin: "#", color: "" },
+  { name: "Sawad K T",           role: "Digital Marketing & AI Trainer",  extra: "",                                experience: "6+ yrs",  tag: "DIRECTOR / FOUNDER", src: "/my-qnayds-app//sawad.png",      linkedin: "#", color: "" },
+  { name: "Abhilash O S",        role: "Microelectronics & VLSI Trainer", extra: "M.Tech — IIT Hyderabad",          experience: "10+ yrs", tag: "IIT HYDERABAD",      src: "/my-qnayds-app//trainer1.png",   linkedin: "#", color: "" },
+  { name: "Kavitha Sivdas Nair", role: "BIM Trainer",                     extra: "Civil & Technical Faculty",       experience: "10+ yrs", tag: "CIVIL EXPERT",       src: "/my-qnayds-app//trainer2.png",   linkedin: "#", color: "" },
+  { name: "Sayanth K S",         role: "Robotics Trainer",                extra: "CEO — Surf Electric & Mobility",  experience: "5+ yrs",  tag: "CEO / FOUNDER",      src: "/my-qnayds-app//trainer3.png",   linkedin: "#", color: "" },
+  { name: "Mohammed Rishal",     role: "Data Science & AI Trainer",       extra: "BSc Data Science — IIT Madras",   experience: "4+ yrs",  tag: "IIT MADRAS",         src: "/my-qnayds-app//trainer4.png",   linkedin: "#", color: "" },
+  { name: "Aswinraj K",          role: "Full Stack Trainer",              extra: "Co-Founder — Zindot Innovations", experience: "5+ yrs",  tag: "CO-FOUNDER",         src: "/my-qnayds-app//trainer5.png",   linkedin: "#", color: "" },
 ]
 
-function TrainerCard({ trainer }) {
+const CARD_WIDTH = 276
+const CARD_GAP   = 20
+const AUTO_DELAY = 2500   // auto-slide every 2.5s
+const MIN_SWIPE  = 50
+
+function TrainerCard({ trainer, active }) {
   const initials = trainer.name.split(' ').map(n => n[0]).join('').slice(0, 2)
   return (
-    <div className="trainer-card">
+    <div className={`trainer-card ${active ? 'active' : ''}`}>
       <div className="trainer-photo">
         {trainer.src
           ? <img src={trainer.src} alt={trainer.name} />
-          : <div className="trainer-photo-placeholder">{initials}</div>}
+          : <div className="trainer-photo-placeholder">{initials}</div>
+        }
+        <div className="card-color-bar" style={{ background: trainer.color }} />
+        <div className="exp-badge" style={{ background: trainer.color }}>{trainer.experience}</div>
       </div>
       <div className="trainer-info">
-        <h3>{trainer.name}</h3>
-        <p className="trainer-role">{trainer.role}</p>
+        <h3 className="trainer-name">{trainer.name}</h3>
+        <p className="trainer-role" style={{ color: trainer.color }}>{trainer.role}</p>
+        {trainer.extra && <p className="trainer-extra">{trainer.extra}</p>}
+        <div className="trainer-meta">
+          <span className="trainer-exp">⏱ {trainer.experience}</span>
+          <span className="trainer-tag" style={{ background: trainer.color + '18', color: trainer.color, borderColor: trainer.color + '40' }}>
+            {trainer.tag}
+          </span>
+        </div>
         <a href={trainer.linkedin} className="linkedin-btn" target="_blank" rel="noopener noreferrer">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="#0077b5">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="#0077b5">
             <path d="M20.447 20.452H17.21v-5.569c0-1.328-.024-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.983V9h3.102v1.561h.044c.431-.817 1.485-1.678 3.057-1.678 3.269 0 3.873 2.152 3.873 4.95v6.619zM5.337 7.433a1.8 1.8 0 1 1 0-3.6 1.8 1.8 0 0 1 0 3.6zm1.554 13.019H3.782V9h3.109v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
           </svg>
+          LinkedIn
         </a>
       </div>
     </div>
@@ -97,66 +113,106 @@ function TrainerCard({ trainer }) {
 }
 
 function Trainers() {
-  const rowRef    = useRef(null)
-  const rafRef    = useRef(null)
-  const scrolling = useRef(false)
+  const [current, setCurrent]   = useState(0)
+  const [paused,  setPaused]    = useState(false)
+  const slidingRef  = useRef(false)
+  const autoRef     = useRef(null)
+  const touchStart  = useRef(null)
+  const touchEnd    = useRef(null)
+  const total       = trainersData.length
 
-  const tick = useCallback(() => {
-    const el = rowRef.current
-    if (!el || !scrolling.current) return
-    if (el.scrollLeft + el.clientWidth >= el.scrollWidth - 1) {
-      el.scrollLeft = 0
-    } else {
-      el.scrollLeft += 1.2
+  // ── navigation ─────────────────────────────────
+  const goTo = useCallback((index) => {
+    if (slidingRef.current) return
+    slidingRef.current = true
+    setCurrent((index + total) % total)
+    setTimeout(() => { slidingRef.current = false }, 520)
+  }, [total])
+
+  const prev = useCallback(() => setCurrent(c => (c - 1 + total) % total), [total])
+  const next = useCallback(() => setCurrent(c => (c + 1) % total), [total])
+
+  // ── auto-play: single interval, pause-aware ─────
+  useEffect(() => {
+    if (paused) {
+      clearInterval(autoRef.current)
+      return
     }
-    rafRef.current = requestAnimationFrame(tick)
-  }, [])
+    autoRef.current = setInterval(() => {
+      setCurrent(c => (c + 1) % total)
+    }, AUTO_DELAY)
+    return () => clearInterval(autoRef.current)
+  }, [paused, total])
 
-  const startScroll = () => {
-    if (scrolling.current) return
-    scrolling.current = true
-    rafRef.current = requestAnimationFrame(tick)
+  // ── touch / swipe ───────────────────────────────
+  const onTouchStart = (e) => {
+    touchStart.current = e.targetTouches[0].clientX
+    touchEnd.current   = null
+    setPaused(true)                          // pause while swiping
   }
-
-  const stopScroll = () => {
-    scrolling.current = false
-    cancelAnimationFrame(rafRef.current)
+  const onTouchMove = (e) => {
+    touchEnd.current = e.targetTouches[0].clientX
   }
-
-  useEffect(() => () => cancelAnimationFrame(rafRef.current), [])
-
-  const scroll = (dir) => {
-    if (rowRef.current) {
-      const card = rowRef.current.querySelector('.trainer-card')
-      const cardWidth = card.offsetWidth + 20
-      rowRef.current.scrollBy({ left: dir * cardWidth, behavior: 'smooth' })
+  const onTouchEnd = () => {
+    if (touchStart.current !== null && touchEnd.current !== null) {
+      const diff = touchStart.current - touchEnd.current
+      if (Math.abs(diff) >= MIN_SWIPE) {
+        diff > 0 ? next() : prev()
+      }
     }
+    touchStart.current = null
+    touchEnd.current   = null
+    setTimeout(() => setPaused(false), 800)  // resume after swipe settles
   }
+
+  // ── manual arrow: pause briefly then resume ─────
+  const handlePrev = () => { prev(); setPaused(true); setTimeout(() => setPaused(false), 3000) }
+  const handleNext = () => { next(); setPaused(true); setTimeout(() => setPaused(false), 3000) }
+
+  const offset = -(current * (CARD_WIDTH + CARD_GAP))
 
   return (
     <section className="trainers" id="trainers">
-      <br />
       <div className="trainers-header">
         <span className="section-badge">Expert Team</span>
-        <h2><span className="highlight">Meet Our Mentors</span></h2>
-        <p>Learn from skilled professionals with real-world industry experience</p>
+        <h2>Meet Our <span className="highlight">Mentors</span></h2>
+        <p>Auto-sliding · swipe or use arrows · learn from industry professionals</p>
       </div>
 
       <div className="trainers-carousel">
-        <button className="carousel-arrow left" onClick={() => scroll(-1)} aria-label="Scroll left">&#8249;</button>
+        <button className="carousel-arrow left"  onClick={handlePrev} aria-label="Previous">&#8249;</button>
 
         <div
-          className="trainers-row"
-          ref={rowRef}
-          onMouseEnter={startScroll}
-          onMouseLeave={stopScroll}
+          className="trainers-window"
+          onMouseEnter={() => setPaused(true)}
+          onMouseLeave={() => setPaused(false)}
+          onTouchStart={onTouchStart}
+          onTouchMove={onTouchMove}
+          onTouchEnd={onTouchEnd}
         >
-          {trainersData.map((trainer, i) => (
-            <TrainerCard key={i} trainer={trainer} />
-          ))}
+          <div
+            className="trainers-track"
+            style={{ transform: `translateX(${offset}px)` }}
+          >
+            {trainersData.map((t, i) => (
+              <TrainerCard key={i} trainer={t} active={i === current} />
+            ))}
+          </div>
         </div>
 
-        <button className="carousel-arrow right" onClick={() => scroll(1)} aria-label="Scroll right">&#8250;</button>
+        <button className="carousel-arrow right" onClick={handleNext} aria-label="Next">&#8250;</button>
+      </div>
+
+      {/* dots */}
+      <div className="carousel-dots">
+        {trainersData.map((_, i) => (
+          <button
+            key={i}
+            className={`dot ${i === current ? 'active' : ''}`}
+            onClick={() => { goTo(i); setPaused(true); setTimeout(() => setPaused(false), 3000) }}
+            aria-label={`Go to slide ${i + 1}`}
+          />
+        ))}
       </div>
     </section>
   )
